@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using Bowling;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace BowlingTest
+namespace GameTests
 {
     [TestClass]
     public class GameTests
@@ -37,7 +37,7 @@ namespace BowlingTest
             game.Roll(1);
             Assert.AreEqual(33, game.Score());
         }
-            
+
 
         [TestMethod]
 
@@ -97,7 +97,7 @@ namespace BowlingTest
         public void TestAllSpareGame()
         {
             var game = new Game();
-            
+
             for (var i = 0; i < 21; i++)
             {
                 game.Roll(5);
@@ -129,7 +129,7 @@ namespace BowlingTest
             }
             Assert.AreEqual(49, game.Score());
         }
-        
+
         [TestMethod]
         public void TestPerfectGame()
         {
@@ -247,7 +247,7 @@ namespace BowlingTest
                 game.Roll(9);
                 game.Roll(0);
             }
-            
+
             Assert.AreEqual(90, game.Score());
         }
 
