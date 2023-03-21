@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bowling
+﻿namespace Bowling
 {
     public class Frame : IFrame
     {
@@ -45,15 +39,13 @@ namespace Bowling
             var bonus = 0;
             if (Next == null) return bonus;
             var nextFrame = (Frame) Next;
-            var t = Next.GetType();
 
             bonus += nextFrame.Roll1 ?? 0;
 
-            if (!nextFrame.IsStrike || t == typeof(TenthFrame))
+            if (!nextFrame.IsStrike || Next is TenthFrame)
             {
                 bonus += nextFrame.Roll2 ?? 0;
-            }
-            else if (nextFrame.IsStrike && t == typeof(Frame))
+            } else
             {
                 if (nextFrame.Next != null)
                 {

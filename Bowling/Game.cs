@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bowling
 {
-    public class Game
+    public class Game : IGame
     {
         private int FrameNumber { get; set;}
         private IFrame _firstFrame;
@@ -62,5 +58,11 @@ namespace Bowling
 
             return gameScore;
         }
+    }
+
+    public interface IGame
+    {
+        void Roll(int pins);
+        int Score();
     }
 }
